@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+
+{% block title %}
+Module {{ module_number }} Analysis | EXAMORA
+{% endblock %}
+
+{% block content %}
+
+<section class="page-section">
+
+    <div class="page-header">
+
+        <span class="section-label">
+            AI ANALYSIS
+        </span>
+
+        <h1>
+            Your module,
+            <span class="gradient-text">
+                analyzed.
+            </span>
+        </h1>
+
+        <p>
+            EXAMORA has identified the topics that deserve
+            your attention first.
+        </p>
+
+    </div>
+
+
+    <!-- SCORE CARDS -->
+
+    <div class="score-grid">
+
+        <div class="score-card">
+
+            <span>
+                Topic Coverage
+            </span>
+
+            <strong>
+                {{ result.coverage_score }}%
+            </strong>
+
+            <small>
+                Content identified
+            </small>
+
+        </div>
+
+
+        <div class="score-card">
+
+            <span>
+                Importance
+            </span>
+
+            <strong>
+                {{ result.importance_score }}%
+            </strong>
+
+            <small>
+                Overall topic priority
+            </small>
+
+        </div>
+
+
+        <div class="score-card">
+
+            <span>
+                Topics
+            </span>
+
+            <strong>
+                {{ result.topic_count }}
+            </strong>
+
+            <small>
+                Topics detected
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <!-- TOPIC TABLE -->
+
+    <div class="content-card">
+
+        <div class="content-card-header">
+
+            <div>
+
+                <span class="section-label">
+                    PRIORITY ANALYSIS
+                </span>
+
+                <h2>
+                    Important Topics
+                </h2>
+
+            </div>
+
+            <span class="module-pill">
+                Module {{ module_number }}
+            </span>
+
+        </div>
+
+
+        {% if result.topics %}
+
+        <div class="topic-list">
+
+            {% for topic in result.topics %}
+
+            <div class="topic-row">
+
+                <div class="topic-rank">
+                    {{ "%02d"|format(loop.index) }}
+                </div>
+
+                <div class="topic-main">
+
+                    <strong>
+                        {{ topic.name }}
+                    </strong>
+
+                    <div class="topic-stars">
+
+                        {% for i in range(topic.stars) %}
+                            ★
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+
+                <div class="topic-score">
+
+                    <strong>
+                        {{ topic.score }}
+                    </strong>
+
+                    <span>
+                        /100
+                    </span>
+
+                </div>
+
+                <span
+                    class="
+                    priority-badge
+                    {% if topic.priority == 'Very High' %}
+                        priority-very-high
+                    {% elif topic.priority == 'High' %}
+                        priority-high
+                    {% elif topic.priority == 'Medium' %}
+                        priority-medium
+                    {% else %}
+                        priority-low
+                    {% endif %}
+                    "
+                >
+                    {{ topic.priority }}
+                </span>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-state">
+
+            <h3>
+                No topics detected
+            </h3>
+
+            <p>
+                Upload readable study material for
+                this module and try again.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- ACTIONS -->
+
+    <div class="page-actions">
+
+        <a
+            href="{{ url_for('questions') }}"
+            class="btn btn-primary"
+        >
+            Generate Questions
+            <span class="btn-arrow">→</span>
+        </a>
+
+        <a
+            href="{{ url_for('results') }}"
+            class="btn btn-secondary"
+        >
+            View Study Plan
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

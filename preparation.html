@@ -1,0 +1,417 @@
+{% extends "base.html" %}
+
+{% block title %}
+Module {{ module_number }} Preparation | EXAMORA
+{% endblock %}
+
+{% block content %}
+
+<section class="page-section">
+
+    <!-- PAGE HEADER -->
+
+    <div class="page-header">
+
+        <span class="section-label">
+            STEP 04
+        </span>
+
+        <h1>
+            Prepare
+            <span class="gradient-text">
+                Module {{ module_number }}.
+            </span>
+        </h1>
+
+        <p>
+            EXAMORA will analyze only this selected
+            module and create your preparation strategy.
+        </p>
+
+    </div>
+
+
+    <!-- PREPARATION LAYOUT -->
+
+    <div class="preparation-layout">
+
+
+        <!-- LEFT : MODULE INFORMATION -->
+
+        <div class="module-info-card">
+
+            <div class="module-large-number">
+                {{ "%02d"|format(module_number) }}
+            </div>
+
+
+            <div class="module-info-content">
+
+                <span class="section-label">
+                    SELECTED MODULE
+                </span>
+
+                <h2>
+                    {{ module.get(
+                        "title",
+                        "Module " ~ module_number
+                    ) }}
+                </h2>
+
+            </div>
+
+
+            <!-- STATISTICS -->
+
+            <div class="info-stat-row">
+
+                <div>
+
+                    <span>
+                        Detected Topics
+                    </span>
+
+                    <strong>
+                        {{ module.get(
+                            "topics",
+                            []
+                        )|length }}
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Content Characters
+                    </span>
+
+                    <strong>
+                        {{ module.get(
+                            "content",
+                            ""
+                        )|length }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTENT PREVIEW -->
+
+            {% if module.get("content") %}
+
+            <div class="content-preview">
+
+                <div class="content-preview-header">
+
+                    <span>
+                        MATERIAL PREVIEW
+                    </span>
+
+                    <span>
+                        ✓ AVAILABLE
+                    </span>
+
+                </div>
+
+
+                <p>
+
+                    {{ module.get("content")[:900] }}
+
+                    {% if module.get("content")|length > 900 %}
+                        ...
+                    {% endif %}
+
+                </p>
+
+            </div>
+
+
+            <!-- TOPICS -->
+
+            {% if module.get("topics") %}
+
+            <div class="detected-topics">
+
+                <div class="content-preview-header">
+
+                    <span>
+                        DETECTED TOPICS
+                    </span>
+
+                    <span>
+                        {{ module.get(
+                            "topics",
+                            []
+                        )|length }}
+                    </span>
+
+                </div>
+
+
+                <div class="topic-chips">
+
+                    {% for topic in module.get(
+                        "topics",
+                        []
+                    )[:12] %}
+
+                    <span class="topic-chip">
+                        {{ topic }}
+                    </span>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+            {% endif %}
+
+
+            {% else %}
+
+
+            <!-- EMPTY STATE -->
+
+            <div class="empty-state">
+
+                <div class="empty-state-icon">
+                    ↑
+                </div>
+
+                <h3>
+                    No module content found
+                </h3>
+
+                <p>
+                    Upload study material for Module
+                    {{ module_number }} before starting
+                    the analysis.
+                </p>
+
+                <a
+                    href="{{ url_for('upload') }}"
+                    class="btn btn-secondary"
+                >
+                    Upload Material
+                </a>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- RIGHT : PREPARATION FORM -->
+
+        <div class="form-card preparation-form-card">
+
+            <div class="form-card-heading">
+
+                <span class="section-label">
+                    PREPARATION SETTINGS
+                </span>
+
+                <h2>
+                    How much time do you have?
+                </h2>
+
+                <p>
+                    EXAMORA will distribute your available
+                    time based on topic importance.
+                </p>
+
+            </div>
+
+
+            <form method="POST">
+
+                <!-- STUDY HOURS -->
+
+                <div class="form-group">
+
+                    <label for="study_hours">
+                        Available Study Time
+                    </label>
+
+                    <div class="input-with-unit">
+
+                        <input
+                            type="number"
+                            id="study_hours"
+                            name="study_hours"
+                            value="{{ study_hours }}"
+                            min="0.5"
+                            max="24"
+                            step="0.5"
+                            required
+                        >
+
+                        <span>
+                            hours
+                        </span>
+
+                    </div>
+
+                    <small>
+                        Example: 2 hours, 3.5 hours or 6 hours
+                    </small>
+
+                </div>
+
+
+                <!-- WHAT EXAMORA DOES -->
+
+                <div class="preparation-features">
+
+                    <div class="preparation-feature">
+
+                        <div class="preparation-feature-icon">
+                            ✦
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Topic Analysis
+                            </strong>
+
+                            <p>
+                                Identify high-priority topics
+                                from your material.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="preparation-feature">
+
+                        <div class="preparation-feature-icon">
+                            ◷
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Smart Time Allocation
+                            </strong>
+
+                            <p>
+                                Distribute your available
+                                study time intelligently.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="preparation-feature">
+
+                        <div class="preparation-feature-icon">
+                            ?
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Exam Questions
+                            </strong>
+
+                            <p>
+                                Prepare exam-oriented
+                                questions from key topics.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="preparation-feature">
+
+                        <div class="preparation-feature-icon">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Quick Revision
+                            </strong>
+
+                            <p>
+                                Create focused revision
+                                points for final preparation.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="btn btn-primary form-submit"
+                >
+
+                    Analyze Module
+
+                    <span class="btn-arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </form>
+
+
+            <!-- NOTE -->
+
+            <div class="preparation-note">
+
+                <span>
+                    🔒
+                </span>
+
+                <p>
+                    EXAMORA analyzes only Module
+                    {{ module_number }}. Other modules
+                    will not be included in this preparation.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- BACK BUTTON -->
+
+    <div class="page-actions">
+
+        <a
+            href="{{ url_for('modules') }}"
+            class="btn btn-secondary"
+        >
+            ← Back to Modules
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+
+{% block title %}Modules | EXAMORA{% endblock %}
+
+{% block content %}
+
+<section class="page-section">
+
+    <div class="page-header">
+
+        <span class="section-label">
+            STEP 03
+        </span>
+
+        <h1>
+            Choose your
+            <span class="gradient-text">
+                module.
+            </span>
+        </h1>
+
+        <p>
+            EXAMORA keeps your preparation focused.
+            Select only the module you need for your exam.
+        </p>
+
+    </div>
+
+
+    {% if not syllabus_uploaded %}
+
+    <div class="warning-card">
+
+        <div class="warning-icon">
+            !
+        </div>
+
+        <div>
+
+            <strong>
+                Syllabus not uploaded
+            </strong>
+
+            <p>
+                Upload your syllabus to let EXAMORA
+                identify your module content.
+            </p>
+
+        </div>
+
+        <a
+            href="{{ url_for('upload') }}"
+            class="btn btn-secondary"
+        >
+            Upload Syllabus
+        </a>
+
+    </div>
+
+    {% endif %}
+
+
+    <div class="modules-grid">
+
+        {% for module in dashboard_data %}
+
+        <div class="module-card">
+
+            <!-- HEADER -->
+
+            <div class="module-card-header">
+
+                <div class="module-number">
+                    {{ "%02d"|format(module.number) }}
+                </div>
+
+                <span
+                    class="
+                    priority-badge
+                    {% if module.status == 'ready' %}
+                        priority-ready
+                    {% else %}
+                        priority-empty
+                    {% endif %}
+                    "
+                >
+
+                    {% if module.status == "ready" %}
+                        READY
+                    {% else %}
+                        EMPTY
+                    {% endif %}
+
+                </span>
+
+            </div>
+
+
+            <!-- MODULE TITLE -->
+
+            <h2>
+                {{ module.title }}
+            </h2>
+
+
+            <!-- MODULE STATS -->
+
+            <div class="module-stat">
+
+                <div>
+
+                    <span>
+                        Content Weight
+                    </span>
+
+                    <strong>
+                        {{ module.percentage }}%
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Topics
+                    </span>
+
+                    <strong>
+                        {{ module.topic_count }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+
+            <div class="module-progress">
+
+                <div
+                    class="module-progress-fill"
+                    data-progress="{{ module.percentage }}"
+                ></div>
+
+            </div>
+
+
+            <!-- CONTENT STATUS -->
+
+            {% if module.status == "ready" %}
+
+            <p class="module-status-text">
+                Study material available for this module.
+            </p>
+
+            {% else %}
+
+            <p class="module-status-text">
+                Upload study material to prepare this module.
+            </p>
+
+            {% endif %}
+
+
+            <!-- PREPARE BUTTON -->
+
+            <a
+                href="{{ url_for(
+                    'prepare',
+                    module_number=module.number
+                ) }}"
+                class="module-button"
+            >
+
+                <span>
+                    Prepare Module
+                </span>
+
+                <span>
+                    →
+                </span>
+
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+
+    <!-- BOTTOM INFORMATION -->
+
+    <div class="module-help-card">
+
+        <div class="module-help-icon">
+            ✦
+        </div>
+
+        <div>
+
+            <h3>
+                Focus on one module
+            </h3>
+
+            <p>
+                You don't have to prepare all five modules.
+                Select the module required for your CIA,
+                unit test or upcoming examination.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

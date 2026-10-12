@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block title %}
+Exam Questions | EXAMORA
+{% endblock %}
+
+{% block content %}
+
+<section class="page-section">
+
+    <div class="page-header">
+
+        <span class="section-label">
+            EXAM PRACTICE
+        </span>
+
+        <h1>
+            Practice the
+            <span class="gradient-text">
+                right questions.
+            </span>
+        </h1>
+
+        <p>
+            Exam-oriented questions generated from
+            the important topics in Module {{ module_number }}.
+        </p>
+
+    </div>
+
+
+    <div class="questions-container">
+
+        {% if questions %}
+
+            {% for item in questions %}
+
+            <div class="question-card">
+
+                <div class="question-header">
+
+                    <span class="question-number">
+                        Q{{ loop.index }}
+                    </span>
+
+                    <div class="question-meta">
+
+                        <span class="marks-badge">
+                            {{ item.marks }} Marks
+                        </span>
+
+                        <span class="priority-badge
+                            {% if item.priority == 'Very High' %}
+                                priority-very-high
+                            {% elif item.priority == 'High' %}
+                                priority-high
+                            {% elif item.priority == 'Medium' %}
+                                priority-medium
+                            {% else %}
+                                priority-low
+                            {% endif %}
+                        ">
+                            {{ item.priority }}
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="question-body">
+
+                    <h2>
+                        {{ item.question }}
+                    </h2>
+
+                    <span class="question-topic">
+                        Topic: {{ item.topic }}
+                    </span>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="empty-state">
+
+                <h3>
+                    No questions available
+                </h3>
+
+                <p>
+                    Analyze a module with study material
+                    before generating questions.
+                </p>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+
+    <div class="page-actions">
+
+        <a
+            href="{{ url_for('results') }}"
+            class="btn btn-primary"
+        >
+            Continue to Study Plan
+            <span class="btn-arrow">→</span>
+        </a>
+
+        <a
+            href="{{ url_for('analysis') }}"
+            class="btn btn-secondary"
+        >
+            Back to Analysis
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {% block title %}
+            EXAMORA
+        {% endblock %}
+    </title>
+
+    <meta
+        name="description"
+        content="EXAMORA - AI-Powered Exam Preparation Assistant"
+    >
+
+    <!-- Google Font -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+    {% block extra_css %}
+    {% endblock %}
+
+</head>
+
+
+<body>
+
+    <!-- ==================================================
+         BACKGROUND
+    ================================================== -->
+
+    <div class="background-effects">
+
+        <div class="glow glow-one"></div>
+
+        <div class="glow glow-two"></div>
+
+        <div class="glow glow-three"></div>
+
+    </div>
+
+
+    <!-- ==================================================
+         NAVBAR
+    ================================================== -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <!-- Logo -->
+
+            <a
+                href="{{ url_for('index') }}"
+                class="brand"
+            >
+
+                <div class="brand-icon">
+                    E
+                </div>
+
+                <div class="brand-text">
+
+                    <span class="brand-name">
+                        EXAMORA
+                    </span>
+
+                    <span class="brand-tagline">
+                        Smart Exam Preparation
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- Navigation -->
+
+            <nav class="nav-links">
+
+                <a
+                    href="{{ url_for('index') }}"
+                    class="nav-link"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="{{ url_for('dashboard') }}"
+                    class="nav-link"
+                >
+                    Dashboard
+                </a>
+
+                <a
+                    href="{{ url_for('upload') }}"
+                    class="nav-link"
+                >
+                    Study Material
+                </a>
+
+                <a
+                    href="{{ url_for('modules') }}"
+                    class="nav-link"
+                >
+                    Modules
+                </a>
+
+            </nav>
+
+
+            <!-- Mobile Menu Button -->
+
+            <button
+                class="mobile-menu-button"
+                id="mobileMenuButton"
+                type="button"
+                aria-label="Open navigation menu"
+            >
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==================================================
+         MOBILE NAVIGATION
+    ================================================== -->
+
+    <div
+        class="mobile-menu"
+        id="mobileMenu"
+    >
+
+        <a href="{{ url_for('index') }}">
+            Home
+        </a>
+
+        <a href="{{ url_for('dashboard') }}">
+            Dashboard
+        </a>
+
+        <a href="{{ url_for('upload') }}">
+            Study Material
+        </a>
+
+        <a href="{{ url_for('modules') }}">
+            Modules
+        </a>
+
+    </div>
+
+
+    <!-- ==================================================
+         FLASH MESSAGES
+    ================================================== -->
+
+    <main class="main-content">
+
+        {% with messages = get_flashed_messages(
+            with_categories=true
+        ) %}
+
+            {% if messages %}
+
+                <div class="flash-container">
+
+                    {% for category, message in messages %}
+
+                        <div
+                            class="flash-message flash-{{ category }}"
+                        >
+
+                            <span class="flash-icon">
+
+                                {% if category == "success" %}
+                                    ✓
+                                {% elif category == "error" %}
+                                    !
+                                {% else %}
+                                    i
+                                {% endif %}
+
+                            </span>
+
+                            <span>
+                                {{ message }}
+                            </span>
+
+                            <button
+                                type="button"
+                                class="flash-close"
+                                onclick="this.parentElement.remove()"
+                            >
+                                ×
+                            </button>
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            {% endif %}
+
+        {% endwith %}
+
+
+        <!-- ==================================================
+             PAGE CONTENT
+        ================================================== -->
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <div class="footer-logo">
+                    EXAMORA
+                </div>
+
+                <p>
+                    AI-Powered Exam Preparation Assistant
+                </p>
+
+            </div>
+
+
+            <div class="footer-info">
+
+                <span>
+                    Built for smarter preparation
+                </span>
+
+                <span class="footer-dot">
+                    •
+                </span>
+
+                <span>
+                    © {{ year }} EXAMORA
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ==================================================
+         MAIN JAVASCRIPT
+    ================================================== -->
+
+    <script
+        src="{{ url_for('static', filename='js/main.js') }}"
+    ></script>
+
+
+    {% block extra_js %}
+    {% endblock %}
+
+
+    <!-- ==================================================
+         MOBILE MENU SCRIPT
+    ================================================== -->
+
+    <script>
+
+        const mobileMenuButton =
+            document.getElementById(
+                "mobileMenuButton"
+            );
+
+        const mobileMenu =
+            document.getElementById(
+                "mobileMenu"
+            );
+
+
+        if (
+            mobileMenuButton &&
+            mobileMenu
+        ) {
+
+            mobileMenuButton.addEventListener(
+                "click",
+                function () {
+
+                    mobileMenu.classList.toggle(
+                        "show"
+                    );
+
+                }
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>
