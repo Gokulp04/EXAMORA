@@ -1,0 +1,227 @@
+{% extends "base.html" %}
+
+{% block title %}Upload Material | EXAMORA{% endblock %}
+
+{% block content %}
+
+<section class="page-section">
+
+    <div class="page-header">
+
+        <span class="section-label">
+            STEP 02
+        </span>
+
+        <h1>
+            Upload your
+            <span class="gradient-text">
+                study material.
+            </span>
+        </h1>
+
+        <p>
+            Upload your syllabus first, then add study
+            materials to the module you want to prepare.
+        </p>
+
+    </div>
+
+
+    <div class="upload-grid">
+
+
+        <!-- SYLLABUS -->
+
+        <div class="upload-card">
+
+            <div class="upload-card-icon">
+                S
+            </div>
+
+            <h2>
+                Upload Syllabus
+            </h2>
+
+            <p>
+                Upload your syllabus PDF or document.
+                EXAMORA will detect Module 1 to Module 5.
+            </p>
+
+            <form
+                method="POST"
+                enctype="multipart/form-data"
+            >
+
+                <input
+                    type="hidden"
+                    name="kind"
+                    value="syllabus"
+                >
+
+                <label class="file-drop">
+
+                    <span class="file-drop-icon">
+                        ↑
+                    </span>
+
+                    <span>
+                        Choose syllabus
+                    </span>
+
+                    <small>
+                        PDF, PPTX, DOCX or TXT
+                    </small>
+
+                    <input
+                        type="file"
+                        name="study_files"
+                        accept=".pdf,.pptx,.docx,.txt"
+                        required
+                    >
+
+                </label>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary full-width"
+                >
+                    Process Syllabus
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- MODULE MATERIAL -->
+
+        <div class="upload-card">
+
+            <div class="upload-card-icon">
+                M
+            </div>
+
+            <h2>
+                Upload Module Material
+            </h2>
+
+            <p>
+                Add notes, PDFs, presentations or documents
+                for the specific module you want to study.
+            </p>
+
+            <form
+                method="POST"
+                enctype="multipart/form-data"
+            >
+
+                <input
+                    type="hidden"
+                    name="kind"
+                    value="module"
+                >
+
+
+                <div class="form-group">
+
+                    <label for="module_number">
+                        Select Module
+                    </label>
+
+                    <select
+                        id="module_number"
+                        name="module_number"
+                        required
+                    >
+
+                        {% for number in range(1, 6) %}
+
+                        <option value="{{ number }}">
+                            Module {{ number }}
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+
+                <label class="file-drop">
+
+                    <span class="file-drop-icon">
+                        ↑
+                    </span>
+
+                    <span>
+                        Choose study material
+                    </span>
+
+                    <small>
+                        Multiple files supported
+                    </small>
+
+                    <input
+                        type="file"
+                        name="study_files"
+                        accept=".pdf,.pptx,.docx,.txt"
+                        multiple
+                        required
+                    >
+
+                </label>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary full-width"
+                >
+                    Upload Material
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <div class="upload-note">
+
+        <strong>
+            Recommended workflow
+        </strong>
+
+        <span>
+            1. Upload syllabus
+        </span>
+
+        <span>
+            →
+        </span>
+
+        <span>
+            2. Choose module
+        </span>
+
+        <span>
+            →
+        </span>
+
+        <span>
+            3. Upload module material
+        </span>
+
+        <span>
+            →
+        </span>
+
+        <span>
+            4. Start preparation
+        </span>
+
+    </div>
+
+</section>
+
+{% endblock %}

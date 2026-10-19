@@ -1,0 +1,669 @@
+{% extends "base.html" %}
+
+{% block title %}
+EXAMORA | Smart Exam Preparation
+{% endblock %}
+
+
+{% block content %}
+
+<!-- ==================================================
+     HERO SECTION
+================================================== -->
+
+<section class="hero-section">
+
+    <div class="hero-content">
+
+        <!-- Badge -->
+
+        <div class="hero-badge">
+            <span class="badge-dot"></span>
+            AI-Powered Exam Preparation
+        </div>
+
+
+        <!-- Main Heading -->
+
+        <h1 class="hero-title">
+
+            Prepare Smarter.
+            <br>
+
+            <span class="gradient-text">
+                Perform Better.
+            </span>
+
+        </h1>
+
+
+        <!-- Description -->
+
+        <p class="hero-description">
+
+            EXAMORA transforms your syllabus and study
+            materials into a personalized exam preparation
+            plan — focused on what matters most.
+
+        </p>
+
+
+        <!-- Buttons -->
+
+        <div class="hero-actions">
+
+            <a
+                href="{{ url_for('dashboard') }}"
+                class="btn btn-primary"
+            >
+
+                Start Preparing
+
+                <span class="btn-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <a
+                href="{{ url_for('upload') }}"
+                class="btn btn-secondary"
+            >
+
+                Upload Material
+
+            </a>
+
+        </div>
+
+
+        <!-- Small trust text -->
+
+        <div class="hero-note">
+
+            <span>✓</span>
+            PDF
+            <span>•</span>
+
+            <span>✓</span>
+            PPTX
+            <span>•</span>
+
+            <span>✓</span>
+            DOCX
+            <span>•</span>
+
+            <span>✓</span>
+            TXT
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================================================
+         HERO VISUAL
+    ================================================== -->
+
+    <div class="hero-visual">
+
+        <div class="dashboard-preview">
+
+
+            <!-- Preview Header -->
+
+            <div class="preview-header">
+
+                <div>
+
+                    <div class="preview-label">
+                        EXAMORA
+                    </div>
+
+                    <div class="preview-title">
+                        Preparation Overview
+                    </div>
+
+                </div>
+
+
+                <div class="preview-status">
+                    READY
+                </div>
+
+            </div>
+
+
+            <!-- Readiness Card -->
+
+            <div class="readiness-card">
+
+                <div class="readiness-info">
+
+                    <span class="preview-small">
+                        Exam Readiness
+                    </span>
+
+                    <strong>
+                        87%
+                    </strong>
+
+                    <span class="readiness-good">
+                        Good progress
+                    </span>
+
+                </div>
+
+
+                <div class="progress-ring">
+
+                    <div class="progress-ring-inner">
+                        87%
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Module Cards -->
+
+            <div class="preview-section-title">
+                Module Priority
+            </div>
+
+
+            <div class="module-preview-grid">
+
+                <div class="mini-module">
+
+                    <div class="mini-module-top">
+
+                        <span>
+                            Module 1
+                        </span>
+
+                        <span class="priority-high">
+                            HIGH
+                        </span>
+
+                    </div>
+
+                    <div class="mini-progress">
+
+                        <div
+                            class="mini-progress-fill"
+                            style="width: 82%;"
+                        ></div>
+
+                    </div>
+
+                    <small>
+                        82% content weight
+                    </small>
+
+                </div>
+
+
+                <div class="mini-module">
+
+                    <div class="mini-module-top">
+
+                        <span>
+                            Module 2
+                        </span>
+
+                        <span class="priority-medium">
+                            MEDIUM
+                        </span>
+
+                    </div>
+
+                    <div class="mini-progress">
+
+                        <div
+                            class="mini-progress-fill"
+                            style="width: 64%;"
+                        ></div>
+
+                    </div>
+
+                    <small>
+                        64% content weight
+                    </small>
+
+                </div>
+
+
+                <div class="mini-module">
+
+                    <div class="mini-module-top">
+
+                        <span>
+                            Module 3
+                        </span>
+
+                        <span class="priority-high">
+                            HIGH
+                        </span>
+
+                    </div>
+
+                    <div class="mini-progress">
+
+                        <div
+                            class="mini-progress-fill"
+                            style="width: 76%;"
+                        ></div>
+
+                    </div>
+
+                    <small>
+                        76% content weight
+                    </small>
+
+                </div>
+
+
+                <div class="mini-module">
+
+                    <div class="mini-module-top">
+
+                        <span>
+                            Module 4
+                        </span>
+
+                        <span class="priority-low">
+                            LOW
+                        </span>
+
+                    </div>
+
+                    <div class="mini-progress">
+
+                        <div
+                            class="mini-progress-fill"
+                            style="width: 41%;"
+                        ></div>
+
+                    </div>
+
+                    <small>
+                        41% content weight
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- AI Insight -->
+
+            <div class="ai-insight">
+
+                <div class="ai-icon">
+                    ✦
+                </div>
+
+                <div>
+
+                    <strong>
+                        EXAMORA Insight
+                    </strong>
+
+                    <p>
+                        Focus on high-priority topics
+                        before moving to revision.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     FEATURES SECTION
+================================================== -->
+
+<section class="features-section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            HOW EXAMORA HELPS
+        </span>
+
+        <h2>
+            Your preparation,
+            <span class="gradient-text">
+                intelligently organized.
+            </span>
+        </h2>
+
+        <p>
+            Upload your materials. Select your module.
+            EXAMORA handles the preparation workflow.
+        </p>
+
+    </div>
+
+
+    <div class="features-grid">
+
+
+        <!-- Feature 1 -->
+
+        <div class="feature-card">
+
+            <div class="feature-number">
+                01
+            </div>
+
+            <div class="feature-icon">
+                ↑
+            </div>
+
+            <h3>
+                Upload Your Material
+            </h3>
+
+            <p>
+                Upload syllabus, notes, PDFs,
+                presentations, documents and
+                text files in one place.
+            </p>
+
+        </div>
+
+
+        <!-- Feature 2 -->
+
+        <div class="feature-card">
+
+            <div class="feature-number">
+                02
+            </div>
+
+            <div class="feature-icon">
+                ◈
+            </div>
+
+            <h3>
+                Select One Module
+            </h3>
+
+            <p>
+                Choose exactly the module you
+                need for your upcoming CIA,
+                unit test or semester exam.
+            </p>
+
+        </div>
+
+
+        <!-- Feature 3 -->
+
+        <div class="feature-card">
+
+            <div class="feature-number">
+                03
+            </div>
+
+            <div class="feature-icon">
+                ✦
+            </div>
+
+            <h3>
+                Smart Analysis
+            </h3>
+
+            <p>
+                EXAMORA identifies important
+                topics and assigns preparation
+                priorities.
+            </p>
+
+        </div>
+
+
+        <!-- Feature 4 -->
+
+        <div class="feature-card">
+
+            <div class="feature-number">
+                04
+            </div>
+
+            <div class="feature-icon">
+                ◷
+            </div>
+
+            <h3>
+                Personalized Study Plan
+            </h3>
+
+            <p>
+                Tell EXAMORA how much time you
+                have and get a focused plan
+                for your available study time.
+            </p>
+
+        </div>
+
+
+        <!-- Feature 5 -->
+
+        <div class="feature-card">
+
+            <div class="feature-number">
+                05
+            </div>
+
+            <div class="feature-icon">
+                ?
+            </div>
+
+            <h3>
+                Exam Questions
+            </h3>
+
+            <p>
+                Generate exam-oriented questions
+                based on the selected module and
+                topic importance.
+            </p>
+
+        </div>
+
+
+        <!-- Feature 6 -->
+
+        <div class="feature-card">
+
+            <div class="feature-number">
+                06
+            </div>
+
+            <div class="feature-icon">
+                ✓
+            </div>
+
+            <h3>
+                Quick Revision
+            </h3>
+
+            <p>
+                Get a concise revision view of
+                the most important concepts before
+                entering the exam hall.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     WORKFLOW SECTION
+================================================== -->
+
+<section class="workflow-section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            SIMPLE WORKFLOW
+        </span>
+
+        <h2>
+            From notes to
+            <span class="gradient-text">
+                exam-ready.
+            </span>
+        </h2>
+
+    </div>
+
+
+    <div class="workflow">
+
+        <div class="workflow-step">
+
+            <div class="workflow-circle">
+                1
+            </div>
+
+            <h3>
+                Enter Details
+            </h3>
+
+            <p>
+                Add your subject, exam date
+                and available study time.
+            </p>
+
+        </div>
+
+
+        <div class="workflow-line"></div>
+
+
+        <div class="workflow-step">
+
+            <div class="workflow-circle">
+                2
+            </div>
+
+            <h3>
+                Upload
+            </h3>
+
+            <p>
+                Upload your syllabus and
+                selected module material.
+            </p>
+
+        </div>
+
+
+        <div class="workflow-line"></div>
+
+
+        <div class="workflow-step">
+
+            <div class="workflow-circle">
+                3
+            </div>
+
+            <h3>
+                Analyze
+            </h3>
+
+            <p>
+                EXAMORA analyzes topics and
+                calculates their priority.
+            </p>
+
+        </div>
+
+
+        <div class="workflow-line"></div>
+
+
+        <div class="workflow-step">
+
+            <div class="workflow-circle">
+                4
+            </div>
+
+            <h3>
+                Prepare
+            </h3>
+
+            <p>
+                Follow your smart study plan,
+                questions and revision.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     CTA SECTION
+================================================== -->
+
+<section class="cta-section">
+
+    <div class="cta-card">
+
+        <div>
+
+            <span class="section-label">
+                READY TO START?
+            </span>
+
+            <h2>
+                Turn your study material
+                into a preparation strategy.
+            </h2>
+
+            <p>
+                Start with one subject.
+                Choose one module.
+                Prepare with EXAMORA.
+            </p>
+
+        </div>
+
+
+        <a
+            href="{{ url_for('dashboard') }}"
+            class="btn btn-primary cta-button"
+        >
+
+            Start EXAMORA
+
+            <span class="btn-arrow">
+                →
+            </span>
+
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

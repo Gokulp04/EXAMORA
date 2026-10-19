@@ -1,0 +1,244 @@
+{% extends "base.html" %}
+
+{% block title %}
+Preparation Results | EXAMORA
+{% endblock %}
+
+{% block content %}
+
+<section class="page-section">
+
+    <div class="page-header">
+
+        <span class="section-label">
+            FINAL PREPARATION
+        </span>
+
+        <h1>
+            Your
+            <span class="gradient-text">
+                exam strategy.
+            </span>
+        </h1>
+
+        <p>
+            Here is your personalized preparation plan
+            for Module {{ module_number }}.
+        </p>
+
+    </div>
+
+
+    <!-- READINESS -->
+
+    <div class="readiness-result-card">
+
+        <div>
+
+            <span class="section-label">
+                EXAM READINESS
+            </span>
+
+            <h2>
+                {{ readiness }}%
+            </h2>
+
+            <p>
+                Your current preparation readiness
+                based on content coverage, importance
+                and available study time.
+            </p>
+
+        </div>
+
+
+        <div class="large-progress">
+
+            <div
+                class="large-progress-fill"
+                data-progress="{{ readiness }}"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- STUDY PLAN -->
+
+    <div class="content-card">
+
+        <div class="content-card-header">
+
+            <div>
+
+                <span class="section-label">
+                    SMART STUDY PLAN
+                </span>
+
+                <h2>
+                    What to study
+                </h2>
+
+            </div>
+
+            <span class="module-pill">
+                Module {{ module_number }}
+            </span>
+
+        </div>
+
+
+        {% if plan %}
+
+        <div class="study-plan">
+
+            {% for item in plan %}
+
+            <div class="plan-row">
+
+                <div class="plan-time">
+                    {{ item.time }}
+                </div>
+
+                <div class="plan-content">
+
+                    <strong>
+                        {{ item.topic }}
+                    </strong>
+
+                    <span>
+                        {{ item.focus }}
+                    </span>
+
+                </div>
+
+                <span class="priority-badge
+                    {% if item.priority == 'Very High' %}
+                        priority-very-high
+                    {% elif item.priority == 'High' %}
+                        priority-high
+                    {% elif item.priority == 'Medium' %}
+                        priority-medium
+                    {% else %}
+                        priority-low
+                    {% endif %}
+                ">
+                    {{ item.priority }}
+                </span>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-state">
+            No study plan available.
+        </div>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- QUICK REVISION -->
+
+    <div class="content-card">
+
+        <div class="content-card-header">
+
+            <div>
+
+                <span class="section-label">
+                    QUICK REVISION
+                </span>
+
+                <h2>
+                    Last-minute focus points
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        {% if revision %}
+
+        <div class="revision-list">
+
+            {% for item in revision %}
+
+            <div class="revision-item">
+
+                <div class="revision-check">
+                    ✓
+                </div>
+
+                <div>
+
+                    <strong>
+                        {{ item.topic }}
+                    </strong>
+
+                    <p>
+                        {{ item.point }}
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-state">
+            No revision points available.
+        </div>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- FINAL ACTIONS -->
+
+    <div class="final-cta">
+
+        <div>
+
+            <span class="section-label">
+                YOU'RE READY
+            </span>
+
+            <h2>
+                Study with focus.
+                Revise with confidence.
+            </h2>
+
+            <p>
+                Follow the plan, practice the questions
+                and revise the high-priority topics.
+            </p>
+
+        </div>
+
+
+        <a
+            href="{{ url_for('questions') }}"
+            class="btn btn-primary"
+        >
+            Practice Questions
+            <span class="btn-arrow">→</span>
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

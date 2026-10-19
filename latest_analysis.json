@@ -1,0 +1,309 @@
+{
+    "title": "Module 2",
+    "topics": [
+        {
+            "name": "Is this statement correct? ❖We can solve it using the above-discussed method of posterior probability",
+            "score": 70,
+            "priority": "High",
+            "stars": 4
+        },
+        {
+            "name": "This algorithm is mostly used in text classification (nlp) and with problems having multiple class labels",
+            "score": 70,
+            "priority": "High",
+            "stars": 4
+        },
+        {
+            "name": "CLASSIFICATION ALGORITHM BY T",
+            "score": 65,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "❖The class with the highest posterior probability is then assigned to the new data point as the predicted class",
+            "score": 65,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "Gaussian Naive Bayes: This variant assumes that continuous features follow a normal (Gaussian) distribution",
+            "score": 65,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "Bernoulli Naive Bayes: This variant is designed for binary or Boolean features, indicating the presence or absence of a feature",
+            "score": 65,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "P(B|A) is the likelihood – the probability of observing event B given that event A has happened",
+            "score": 65,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "P(A) is the prior probability – the initial probability of event A before any new information is considered",
+            "score": 65,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "Page 7 --- Problem Players will play if the weather is sunny",
+            "score": 65,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "❖P(Yes | Sunny) = P( Sunny | Yes) * P(Yes) / P (Sunny) ❖Here P( Sunny | Yes) * P(Yes) is in the numerator, and P (Sunny) is in the denominator",
+            "score": 65,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "❖The Naive Bayes uses a similar method to predict the probability of different class based on various attributes",
+            "score": 65,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "Handles High-Dimensional Data: Performs well with datasets containing numerous features, like text classification where each word can be a feature",
+            "score": 65,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "Handles Categorical and Text Data: Well-suited for text classification and spam detection because of its efficiency with categorical data",
+            "score": 65,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "This can be mitigated using smoothing techniques like Laplace smoothing",
+            "score": 65,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "They are a powerful tool in machine learning for modeling uncertainty and making predictions based on probabilities",
+            "score": 65,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "Decision Making: They can be used to model decision processes, incorporating uncertainty and various outcomes to aid in making informed decisions",
+            "score": 65,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "This aspect is particularly advantageous in real-world applications where data may be scarce or expensive",
+            "score": 65,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "It is a tool that has applications spanning several different areas",
+            "score": 65,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "These trees can be used for classification as well as regression problems",
+            "score": 65,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "Page 18 --- Types of Decision Tree ID3: This algorithm measures how mixed up the data is at a node using something called entropy",
+            "score": 65,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "Let’s follow the below steps to perform it",
+            "score": 60,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "29 and probability of playing is 0",
+            "score": 60,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "❖Here we have P (Sunny |Yes) = 3/9 = 0",
+            "score": 60,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "Effective with Limited Training Data: Can perform reliably even with smaller training datasets due to its probabilistic nature",
+            "score": 60,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "Text Classification: Categorizing documents into predefined classes, like sports, politics, or technology news",
+            "score": 60,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "CART: This algorithm uses a different measure called Gini impurity to decide how to split the data",
+            "score": 60,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "33, P(Sunny) = 5/14 = 0",
+            "score": 55,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "60, which has higher probability",
+            "score": 55,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "Sensitivity to Irrelevant Features: Including irrelevant or noisy features can negatively impact performance",
+            "score": 55,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "Sentiment Analysis: Determining the sentiment (positive, negative, neutral) of text data, such as customer reviews or social media posts",
+            "score": 55,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "Recommendation Systems: Predicting user preferences to suggest products or content",
+            "score": 55,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "Medical Diagnosis: Assisting in predicting diseases based on symptoms and medical history",
+            "score": 55,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "This helps researchers and practitioners understand complex relationships and interactions within the data",
+            "score": 55,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "Probabilistic Inference: Bayesian networks are especially useful for making predictions about uncertain events",
+            "score": 55,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "They allow for probabilistic reasoning, which means you can calculate the likelihood of certain outcomes when some of the variables are known",
+            "score": 55,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "Page 13 --- Complete formula of Bayes’ Theorem to calculate The probability of variable A given variable B",
+            "score": 55,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "For variable B, which has no parents and is independent of A or C, its marginal probability is simply P(B)",
+            "score": 55,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "This explanation assumes a Bayesian network where B influences A and C, and A and C are conditionally independent of each other given B",
+            "score": 55,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "Page 16 --- Conclusion Construct the network: Understand the network as the representation of the Joint probability distribution",
+            "score": 55,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "Designing Inference Procedure: Understand the network to encode a collection of conditional independence statements",
+            "score": 55,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "The name itself suggests that it uses a flowchart like a tree structure to show the predictions that result from a series of feature-based splits",
+            "score": 55,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "It starts with a root node and ends with a decision made by leaves",
+            "score": 55,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "It then chooses the feature that helps to clarify the data the most",
+            "score": 55,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "5: This is an improved version of ID3 that can handle missing data and continuous attributes",
+            "score": 55,
+            "priority": "Medium",
+            "stars": 3
+        },
+        {
+            "name": "36, P( Yes)= 9/14 = 0",
+            "score": 50,
+            "priority": "Low",
+            "stars": 2
+        },
+        {
+            "name": "64 ❖Now, P (Yes | Sunny) = 0",
+            "score": 50,
+            "priority": "Low",
+            "stars": 2
+        },
+        {
+            "name": "33 * 0",
+            "score": 50,
+            "priority": "Low",
+            "stars": 2
+        },
+        {
+            "name": "64 / 0",
+            "score": 50,
+            "priority": "Low",
+            "stars": 2
+        },
+        {
+            "name": "36 = 0",
+            "score": 50,
+            "priority": "Low",
+            "stars": 2
+        },
+        {
+            "name": "A is dependent upon B, and C is dependent upon B",
+            "score": 50,
+            "priority": "Low",
+            "stars": 2
+        }
+    ],
+    "coverage_score": 100,
+    "importance_score": 59,
+    "topic_count": 50,
+    "content_chars": 43593
+}
